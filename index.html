@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Tool</title>
+  <meta name="theme-color" content="#4a6fa5">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <h1>Base64 Tool</h1>
+    
+    <div class="tabs">
+      <button class="tab active" data-tab="text">Text</button>
+      <button class="tab" data-tab="image">Image</button>
+    </div>
+
+    <!-- Text Encoder/Decoder -->
+    <div id="text-tab" class="tab-content active">
+      <textarea id="text-input" placeholder="Enter text to encode/decode..."></textarea>
+      <div class="buttons">
+        <button id="encode-text">Encode to Base64</button>
+        <button id="decode-text">Decode from Base64</button>
+        <button id="copy-text">Copy</button>
+      </div>
+      <textarea id="text-output" readonly></textarea>
+    </div>
+
+    <!-- Image Encoder/Decoder -->
+    <div id="image-tab" class="tab-content">
+      <input type="file" id="image-input" accept="image/*">
+      <div class="buttons">
+        <button id="encode-image">Encode Image</button>
+        <button id="copy-image">Copy Base64</button>
+      </div>
+      <textarea id="image-output" readonly></textarea>
+      <div id="image-preview"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
